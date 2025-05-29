@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainHeading = document.getElementById('main-heading');
     const subHeading = document.getElementById('sub-heading');
     const docsLinkParagraph = document.getElementById('docs-link-paragraph');
+    const githubLinkParagraph = document.getElementById('github-link-paragraph'); // <-- Add this
     const interactiveButton = document.getElementById('interactive-button');
     const interactiveText = document.getElementById('interactive-text');
 
@@ -21,7 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
         { el: mainHeading, delay: 400, transform: true },
         { el: subHeading, delay: 600, transform: true },
         { el: docsLinkParagraph, delay: 800, transform: true },
-        { el: interactiveButton, delay: 1000, transform: true, scaleButton: true }
+        { el: githubLinkParagraph, delay: 1000, transform: true }, // <-- Add this
+        { el: interactiveButton, delay: 1200, transform: true, scaleButton: true } // Adjusted delay
     ];
 
     elementsToAnimate.forEach(item => {
