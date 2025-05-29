@@ -1,13 +1,25 @@
 {
     "version": 2,
     "builds": [
-        { "src": "/api/index.php", "use": "vercel-php@0.7.3" },
-        { "src": "/public/**", "use": "@vercel/static" }
+        {
+            "src": "api/index.php",
+            "use": "vercel-php@0.7.3",
+            "config": {
+                 "build": [
+                    "composer install --no-dev --optimize-autoloader",
+                    "php artisan config:cache",
+                    "php artisan route:cache",
+                    "php artisan view:cache",
+                    "php artisan event:cache"
+                ]
+            }
+        }
     ],
     "routes": [
         {
-            "src": "/(css|js)/(.*)",
-            "dest": "public/$1/$2"
+            "src": "/(favicon\\.ico|robots\\.txt|css/.*|js/.*|images/.*)",
+            "headers": { "Cache-Control": "public, max-age=86400" },
+            "dest": "/$1"
         },
         {
             "src": "/(.*)",
@@ -15,11 +27,10 @@
         }
     ],
     "env": {
-        "APP_NAME": "Vercel Laravel",
+        "APP_NAME": "ForumLite API",
         "APP_ENV": "production",
         "APP_DEBUG": "false",
-        "APP_URL": "https://php-laravel.vercel.app",
-        "VERCEL_DEMO_MODE": "true",
+        "APP_URL": "https://forum-lite-api.vercel.app",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
         "APP_PACKAGES_CACHE": "/tmp/packages.php",
@@ -29,7 +40,6 @@
         "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER": "array",
         "VIEW_COMPILED_PATH": "/tmp/views",
-        "SSR_TEMP_PATH": "/tmp/ssr",
         "NODE_PATH": "node"
     }
 }
