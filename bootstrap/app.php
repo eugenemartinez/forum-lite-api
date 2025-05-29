@@ -8,8 +8,8 @@ use App\Http\Middleware\TrustProxies;
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
-        api: __DIR__.'/../routes/api.php', // <-- Add this line
-        apiPrefix: 'api',                  // <-- Optionally, explicitly set the prefix (default is 'api')
+        api: __DIR__.'/../routes/api.php',
+        apiPrefix: env('VERCEL_ENV') ? '' : 'api', // <-- Modified this line
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
