@@ -14,21 +14,10 @@
             "config": {
                 "build": [
                     "composer install --no-dev --optimize-autoloader",
-                    "echo '--- Attempting to run php artisan key:generate ---'",
-                    "php artisan key:generate --force",
-                    "echo '--- Attempting to run php artisan config:cache ---'",
                     "php artisan config:cache",
-                    "echo '--- Attempting to run php artisan route:cache ---'",
                     "php artisan route:cache",
-                    "echo '--- Attempting to run php artisan view:cache ---'",
                     "php artisan view:cache",
-                    "echo '--- Attempting to run php artisan event:cache ---'",
-                    "php artisan event:cache",
-                    "echo '--- Attempting to run vendor:publish for L5-Swagger ---'",
-                    "php artisan vendor:publish --provider=\"L5Swagger\\L5SwaggerServiceProvider\" --tag=\"l5-swagger-assets\" --force",
-                    "echo '--- Attempting to run l5-swagger:generate ---'",
-                    "php artisan l5-swagger:generate",
-                    "echo '--- PHP build script commands finished ---'"
+                    "php artisan event:cache"
                 ]
             }
         }
