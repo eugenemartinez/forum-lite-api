@@ -12,7 +12,8 @@ return [
                 /*
                  * Route for accessing api documentation interface
                  */
-                'api' => 'api/documentation',
+                // Conditionally set the path based on the environment
+                'api' => env('VERCEL_ENV') ? 'documentation' : 'api/documentation',
             ],
             'paths' => [
                 /*
