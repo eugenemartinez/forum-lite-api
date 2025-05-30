@@ -22,7 +22,7 @@ use OpenApi\Annotations as OA;
  * )
  *
  * @OA\Server(
- *      url=L5_SWAGGER_CONST_HOST,
+ *      url="https://forum-lite-api.vercel.app/api",
  *      description="ForumLite API Server"
  * )
  *
