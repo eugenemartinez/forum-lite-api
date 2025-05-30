@@ -17,7 +17,8 @@
                     "php artisan config:cache",
                     "php artisan route:cache",
                     "php artisan view:cache",
-                    "php artisan event:cache"
+                    "php artisan event:cache",
+                    "php artisan l5-swagger:generate"
                 ]
             }
         }
@@ -54,6 +55,6 @@
         "VIEW_COMPILED_PATH": "/tmp/views",
         "NODE_PATH": "node",
         "VITE_APP_ENV": "${APP_ENV}",
-        "L5_SWAGGER_CONST_HOST":"${APP_URL}"
+        "L5_SWAGGER_CONST_HOST":"https://forum-lite-api.vercel.app"
     }
 }
