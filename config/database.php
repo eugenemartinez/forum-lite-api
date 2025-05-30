@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'pgsql'),
+    'default' => env('DB_CONNECTION', 'pgsql'), // Changed default to pgsql for clarity
 
     /*
     |--------------------------------------------------------------------------
@@ -88,20 +88,20 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => env('DATABASE_URL'), // Changed from DB_URL for common standard
+            'url' => env('DB_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '5432'),
             'database' => env('DB_DATABASE', 'laravel'),
             'username' => env('DB_USERNAME', 'root'),
             'password' => env('DB_PASSWORD', ''),
             'charset' => env('DB_CHARSET', 'utf8'),
-            'prefix' => 'forumlite_', // Your custom prefix
+            'prefix' => 'forumlite_',
             'prefix_indexes' => true,
             'search_path' => 'public',
-            'sslmode' => env('PGSSLMODE', 'prefer'), // Use environment variable for sslmode
+            'sslmode' => env('PGSSLMODE', 'prefer'), // Important for NeonDB
             // 'sslcert' => env('DB_SSLCERT'),
             // 'sslkey' => env('DB_SSLKEY'),
-            // 'sslrootcert' => env('DB_SSLROOTCERT'), // Usually not needed for Neon if PGSSLMODE=require
+            // 'sslrootcert' => env('DB_SSLROOTCERT'),
         ],
 
         /*
