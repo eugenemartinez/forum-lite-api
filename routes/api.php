@@ -21,6 +21,16 @@ Route::get('/', function () {
         return route($name, [], true);
     };
 
+    $documentationUrl = route('l5-swagger.default.api', [], true);
+    if (env('VERCEL_ENV')) {
+        // On Vercel, route('l5-swagger.default.api') generates APP_URL/documentation
+        // The actual accessible URL (due to Vercel's /api prefix for the app)
+        // and L5-Swagger's internal route being /documentation is APP_URL/api/documentation.
+        // We need the link to reflect this.
+        $appBaseUrl = rtrim(config('app.url'), '/');
+        $documentationUrl = $appBaseUrl . '/api/documentation';
+    }
+
     return response()->json([
         'message' => 'Welcome to the Forum Lite API. Please use specific endpoints.',
         'available_resources' => [
@@ -30,7 +40,7 @@ Route::get('/', function () {
             'list_posts' => $apiRoute('posts.index'),
             'ping' => $apiRoute('ping'),
         ],
-        'documentation' => route('l5-swagger.default.api', [], true),
+        'documentation' => $documentationUrl,
     ]);
 })->name('api.root');
 
