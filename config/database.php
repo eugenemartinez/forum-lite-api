@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'pgsql'), // Changed default to pgsql for clarity
+    'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -88,20 +88,20 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => env('DB_URL'),
+            'url' => env('DATABASE_URL'), // Changed from DB_URL for common standard
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '5432'),
             'database' => env('DB_DATABASE', 'laravel'),
             'username' => env('DB_USERNAME', 'root'),
             'password' => env('DB_PASSWORD', ''),
             'charset' => env('DB_CHARSET', 'utf8'),
-            'prefix' => 'forumlite_',
+            'prefix' => 'forumlite_', // Your custom prefix
             'prefix_indexes' => true,
             'search_path' => 'public',
-            'sslmode' => 'prefer',
+            'sslmode' => env('PGSSLMODE', 'prefer'), // Use environment variable for sslmode
             // 'sslcert' => env('DB_SSLCERT'),
             // 'sslkey' => env('DB_SSLKEY'),
-            // 'sslrootcert' => env('DB_SSLROOTCERT'),
+            // 'sslrootcert' => env('DB_SSLROOTCERT'), // Usually not needed for Neon if PGSSLMODE=require
         ],
 
         /*
@@ -160,20 +160,26 @@ return [
 
         'default' => [
             'url' => env('REDIS_URL'),
+            'scheme' => env('REDIS_SCHEME'), // Added for TLS support
             'host' => env('REDIS_HOST', '127.0.0.1'),
             'username' => env('REDIS_USERNAME'),
             'password' => env('REDIS_PASSWORD'),
             'port' => env('REDIS_PORT', '6379'),
             'database' => env('REDIS_DB', '0'),
+            'read_timeout' => env('REDIS_READ_TIMEOUT', 60), // Added timeout
+            'connect_timeout' => env('REDIS_CONNECT_TIMEOUT', 10), // Added timeout
         ],
 
         'cache' => [
             'url' => env('REDIS_URL'),
+            'scheme' => env('REDIS_SCHEME'), // Added for TLS support
             'host' => env('REDIS_HOST', '127.0.0.1'),
             'username' => env('REDIS_USERNAME'),
             'password' => env('REDIS_PASSWORD'),
             'port' => env('REDIS_PORT', '6379'),
             'database' => env('REDIS_CACHE_DB', '1'),
+            'read_timeout' => env('REDIS_READ_TIMEOUT', 60), // Added timeout
+            'connect_timeout' => env('REDIS_CONNECT_TIMEOUT', 10), // Added timeout
         ],
     ],
 ];
