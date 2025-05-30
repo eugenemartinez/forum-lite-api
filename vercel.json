@@ -55,6 +55,6 @@
         "VIEW_COMPILED_PATH": "/tmp/views",
         "NODE_PATH": "node",
         "VITE_APP_ENV": "${APP_ENV}",
-        "L5_SWAGGER_CONST_HOST":"https://forum-lite-api.vercel.app"
+        "L5_SWAGGER_CONST_HOST":"${APP_URL}"
     }
 }

@@ -30,7 +30,7 @@ Route::get('/', function () {
             'list_posts' => $apiRoute('posts.index'),
             'ping' => $apiRoute('ping'),
         ],
-        'documentation' => $baseUrl . (env('VERCEL_ENV') ? '' : '/api') . '/documentation', // Assuming /docs for Swagger/OpenAPI
+        'documentation' => route('l5-swagger.default.api', [], true),
     ]);
 })->name('api.root');
 
