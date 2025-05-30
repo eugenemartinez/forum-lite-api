@@ -23,7 +23,11 @@ use OpenApi\Annotations as OA;
  *
  * @OA\Server(
  *      url="https://forum-lite-api.vercel.app/api",
- *      description="ForumLite API Server"
+ *      description="ForumLite API Server (Production)"
+ * )
+ * @OA\Server(
+ *      url="http://127.0.0.1:8000/api",
+ *      description="Local Development Server"
  * )
  *
  * @OA\SecurityScheme(
