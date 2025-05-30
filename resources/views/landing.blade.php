@@ -19,8 +19,7 @@
             A sleek, modern backend for your next discussion platform.
         </p>
         <p id="docs-link-paragraph" class="text-gray-400 mb-2 text-lg opacity-0 transform -translate-y-3 transition-all duration-1000 ease-out delay-700">
-            API Documentation will be available soon.
-            {{-- <a href="/api/documentation" class="text-indigo-400 hover:text-indigo-300 font-semibold underline">View API Documentation</a> --}}
+            <a href="/api/documentation" class="text-indigo-400 hover:text-indigo-300 font-semibold underline">View API Documentation</a>
         </p>
         <p id="github-link-paragraph" class="text-gray-400 mb-8 text-lg opacity-0 transform -translate-y-3 transition-all duration-1000 ease-out delay-900">
             <a href="https://github.com/eugenemartinez/forum-lite-api" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-indigo-400 hover:text-indigo-300 font-semibold underline">
@@ -29,8 +28,8 @@
             </a>
         </p>
 
-        <button id="interactive-button" class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75 opacity-0 scale-75 delay-1000">
-            Discover More
+        <button id="interactive-button" class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75 opacity-0 scale-75 delay-1000 cursor-pointer">
+            Click Me!
         </button>
 
         <p id="interactive-text" class="mt-8 text-purple-300 font-medium opacity-0 transition-all duration-700 ease-in-out h-0 overflow-hidden">

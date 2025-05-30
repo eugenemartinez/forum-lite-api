@@ -15,6 +15,9 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->prepend(TrustProxies::class);
+        $middleware->alias([
+            'check.limit' => \App\Http\Middleware\CheckTableRowLimit::class,
+        ]);
         // You might have other global middleware here, e.g.:
         // $middleware->web(append: [
         //     \App\Http\Middleware\HandleInertiaRequests::class,
