@@ -14,7 +14,7 @@
     },
     "servers": [
         {
-            "url": "http://127.0.0.1:8000/api",
+            "url": "https://forum-lite-api.vercel.app/api",
             "description": "ForumLite API Server"
         }
     ],
