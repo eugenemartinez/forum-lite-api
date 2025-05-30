@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ $documentationTitle }}</title>
-    <link rel="stylesheet" type="text/css" href="{{ l5_swagger_asset($documentation, 'swagger-ui.css') }}">
+    {{-- Use CDN for Swagger UI CSS --}}
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@latest/swagger-ui.css">
+    {{-- Favicons - these might still use l5_swagger_asset. If they also cause issues, consider removing or finding CDN alternatives if available. --}}
     <link rel="icon" type="image/png" href="{{ l5_swagger_asset($documentation, 'favicon-32x32.png') }}" sizes="32x32"/>
     <link rel="icon" type="image/png" href="{{ l5_swagger_asset($documentation, 'favicon-16x16.png') }}" sizes="16x16"/>
     <style>
@@ -119,8 +121,9 @@
 <body @if(config('l5-swagger.defaults.ui.display.dark_mode')) id="dark-mode" @endif>
 <div id="swagger-ui"></div>
 
-<script src="{{ l5_swagger_asset($documentation, 'swagger-ui-bundle.js') }}"></script>
-<script src="{{ l5_swagger_asset($documentation, 'swagger-ui-standalone-preset.js') }}"></script>
+{{-- Use CDN for Swagger UI JavaScript --}}
+<script src="https://unpkg.com/swagger-ui-dist@latest/swagger-ui-bundle.js"></script>
+<script src="https://unpkg.com/swagger-ui-dist@latest/swagger-ui-standalone-preset.js"></script>
 <script>
     window.onload = function() {
         const urls = [];
